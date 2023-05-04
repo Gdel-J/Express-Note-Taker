@@ -1,14 +1,23 @@
 {
-  "name": "note-taker",
+  "name": "express-note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "challenge 11",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "\"node server.js\"",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gdel-J/Express-Note-Taker.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gdel-J/Express-Note-Taker/issues"
+  },
+  "homepage": "https://github.com/Gdel-J/Express-Note-Taker#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.18.2"
   }
 }
