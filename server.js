@@ -1,8 +1,9 @@
+// Dependencies
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const { v4: uuidv4 } = require('uuid');
-const db = require('./db/db.json');
+const uuid = require('uuid');
+
 
 
 // express config
@@ -10,131 +11,87 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 
+//Use of  images, CSS files, and JavaScript files in the public directory
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(express.json());
 
 
 
-
-
-//app.get('api/notes/:id', (req, res) => {
-//res.json(notes[req.params.id]);
-//});
-
-//app.get('/api/notes', (req, res) => {
-//fs.readFile('./db/db.json', 'utf8', (err, data) => {
-//    if (err) throw err;
-//    var notes = JSON.parse(data);
-//    res.json(notes);
-//  });
-//});
-
 //API Routes
-// GET /api/notes should read the db.json file and return all saved notes as JSON.
+
+
+// GET /api/notes will read the db.json file and return all saved notes as JSON.
 app.get('/api/notes', (req, res) => {
   fs.readFile('./db/db.json', (err, data) => {
-      ///error logging
-      if (err) throw err;
-      let dbData = JSON.parse(data);
-      //Returns new database
-      res.json(dbData)
-  });   
-})
-
-
-
-app.post('/api/notes', (req, res) => {
-  let newNotes = req.body
-
-  newNotes.id = uuidv4();
-
-  db.push(newNotes);
-
- 
-fs.writeFile('./db/db.json', JSON.stringify(db), (err) => {
-      if (err) console.log(err)
-      res.json(db);
-    });
-
+    ///error logging
+    if (err) throw err;
+    let dbData = JSON.parse(data);
+    //Returns new database
+    res.json(dbData)
   });
-  
-
-
-  //DELETE
-// notes when the button is clicked by removing the note from db.json, saving and showing the updated database on the front end.
-app.delete('/api/notes/:id', (req, res) => {
-  const newDb = db.filter((note) =>
-      note.id !== req.params.id)
-
-  // update the db.json file to reflect the modified notes array
-  fs.writeFileSync('./db/db.json', JSON.stringify(newDb))
-
-  // send that removed note object back to user
-  readFile.json(newDb)
 })
 
 
 
-//app.post('/api/notes', (req, res) => {
-//let newNotes = req.body
-//newNotes.id = uuidv4();
-//fs.readFile('./db/db.json', 'utf8', (err, data) => {
-//    if (err) throw err;
-//    let notes = JSON.parse(data);
-//    console.log(notes, newNotes);
-//   notes.push(newNotes);
-//  fs.writeFile('./db/db.json', JSON.stringify(notes), (err) => {
-//      if (err) console.log(err)
-//      res.json(newNotes);
-//    });
-//  });
-//});
+// API POST request
+app.post("/api/notes", function (req, res) {
 
-//DELETE
-//notes when the button is clicked by removing the note from db.json, saving and showing the updated database on the front end.
-//app.delete('/api/notes/:id', (req, res) => {
-//  const newDb = db.filter((note) =>
-//    note.id !== req.params.id)
-// update the db.json file to reflect the modified notes array
-//  fs.writeFileSync('./db/db.json', JSON.stringify(newDb))
-// send that removed note object back to user
-//  fs.readFile.json(newDb)
-//})
+  let newNotes = req.body
+  newNotes.id = uuid.v4();
+
+  // Variable allTheNotes= because allTheNotes will be contained within this braquets 
+  let allTheNotes = [];
+  fs.readFile("./db/db.json", (err, data) => {
+    if (err) throw err;
+    allTheNotes = JSON.parse(data);
+    allTheNotes.push(newNotes);
+    fs.writeFile("./db/db.json", JSON.stringify(allTheNotes), "utf-8", (err) => {
+      if (err) throw err;
+      console.log("Your note has been saved.")
+      res.end();
+    })
+  })
+  console.log(newNotes)
+});
 
 
+// API DELETE Request
+app.delete("/api/notes/:id", (req, res) => {
+  let noteId = req.params.id;
+  fs.readFile("./db/db.json", (err, data) => {
+    if (err) throw err;
+    let notesDB = JSON.parse(data);
+    const screenedNotes = notesDB.filter(values => values.id != noteId);
+    fs.writeFile("./db/db.json", JSON.stringify(screenedNotes), "utf-8", err => {
+      if (err) throw err;
+      console.log("Your note has been deleted.")
+      res.end();
+    });
+  });
+});
 
 
 
-
-//Sends notes to the notes.html file
-//app.get('/notes', (req, res) => {
-//  res.sendFile(path.join(__dirname, './public/notes.html'))
-//});
-//Sends to the homepage if a pathing issue exists
-//app.get('*', (req, res) => {
-//  res.sendFile(path.join(__dirname, './public/index.html'));
-//});
-
+//html routes
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
-//Notes
+//route to notes.html
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'notes.html'))
 })
 
-
+//route to index.html 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
 
 
-
-
+//App listens through that port when launched with 'node server' command line
 app.listen(PORT, () => {
   console.log(`App listening on PORT: ${PORT}`);
 });
