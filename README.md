@@ -43,9 +43,16 @@ Second:
 
 In order to initialize the project:
 
+
 Copy Link: click the `Code` button within this GitHub SSH repository to copy link
 
 Clone: inside GitBash, use the command `git clone paste link here`
+
+link to application : 
+
+https://github.com/Gdel-J/Express-Note-Taker.git
+
+
 
 
 
