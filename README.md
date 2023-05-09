@@ -75,26 +75,26 @@ We should see this image:
 ![Screenshot 1](https://user-images.githubusercontent.com/120201085/236970885-d0b25884-bc7a-42ef-a7fe-5c833209abae.png)
 
 
- After  I have clicked on the button  I will have this  image:
+ After you have clicked on the button  you will have this  image:
 
 ![Screenshot 2](https://user-images.githubusercontent.com/120201085/236970122-ab11dcb6-5d93-4bca-91d6-d6dc3dc41ef7.png)
 
 
 
-In my folder db/db.json I should have an empty array if I haven't put anything  yet :
+In your folder  db/db.json file you should have an empty array if you haven't saved any data yet :
 
 ![Screenshot 3](https://user-images.githubusercontent.com/120201085/236970133-41759363-f6aa-4f5c-871c-9cae00d3ad49.png)
 
 
 
-After I have type some notes and saved them  I would have a page like this : 
+After you have typed some notes and saved them  you would have a page like this : 
 
 
 ![Screenshot 4](https://user-images.githubusercontent.com/120201085/236970142-0f645511-903a-46dc-8042-ac02d21b5d74.png)
 
 
 
-In my folder  and my file db/db.json I should have an array with some data now :
+In your folder  and your file db/db.jsony ou should have an array filled with some data now :
 
 
 ![Screenshot 5](https://user-images.githubusercontent.com/120201085/236970152-a989b061-f06c-4ff3-a3c4-5e04da4e0c31.png)
