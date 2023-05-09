@@ -37,6 +37,8 @@ In order to use this project make sure to have the following programs installed 
 3.Node.js(version.16)
 
 
+
+
 Second:
 
 In order to initialize the project:
@@ -44,6 +46,8 @@ In order to initialize the project:
 Copy Link: click the `Code` button within this GitHub SSH repository to copy link
 
 Clone: inside GitBash, use the command `git clone paste link here`
+
+
 
 
 
