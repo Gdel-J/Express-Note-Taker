@@ -62,12 +62,41 @@ Finally,You will want to run `node server.js` to start the app.
 
 ## Usage
 
-Screenshots  to add
+
+
+After the installation of all dependencies, 
+
+We can run `http://localhost:3001` in the browser
+
+We should see this image:
+
+![Screenshot 1]
 
 
 
+ After  I have clicked on the button  I will have this  image:
+
+![Screenshot 2]
 
 
+
+In my folder db/db.json I should have an empty array if I haven't put anything  yet :
+
+![Screenshot 3]
+
+
+
+After I have type some notes and saved them  I would have a page like this : 
+
+
+![Screenshot 4]
+
+
+
+In my folder  and my file db/db.json I should have an array with some data now :
+
+
+![Screenshot 5]
 
 
 
