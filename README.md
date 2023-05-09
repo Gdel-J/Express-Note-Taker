@@ -72,7 +72,7 @@ We can run `http://localhost:3001` in the browser
 
 We should see this image:
 
-![Screenshot 1](https://user-images.githubusercontent.com/120201085/236970090-6e2c47d3-1e9a-446f-8a25-83bc305466bc.png)
+![Screenshot 1](https://user-images.githubusercontent.com/120201085/236970885-d0b25884-bc7a-42ef-a7fe-5c833209abae.png)
 
 
  After  I have clicked on the button  I will have this  image:
