@@ -136,4 +136,4 @@ N/A
 
 ## Credits
 
-This application has been made by Gérard Del Vecchio during the UCF bootcamp program. A starter code has been provided, and I had some help with R.K Royston TA in order to upgrade my `POST request`.
+This application has been made by Gérard Del Vecchio during the UCF bootcamp program. A starter code has been provided, and I had a great help with R.K Royston TA in order to upgrade my `POST request`.
